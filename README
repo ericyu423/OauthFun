@@ -1,0 +1,33 @@
+
+Problems
+
+Currently it will work with facebook login and regular user email pasword login.
+Does not work with google login
+(for Google to work safari view controller have to implemented.)
+
+
+
+
+
+Notes:
+Auth workflow
+1. register App with an redirect_url, get public key and Client ID
+2. Use key and ID to get token to access API, token will be added behind the redirect_url
+
+- redirect_url
+
+* if it can be registered in format scheme://, scheme can be added in plist to redirect back to the App NXOAuth2Client library can be used.
+
+* stackapp does not take redirect_url in the above format of WKWebview will be used and use it's delegate to intercept token.
+
+
+
+
+
+
+
+
+
+
+
+
