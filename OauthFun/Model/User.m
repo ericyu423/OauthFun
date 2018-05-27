@@ -10,12 +10,14 @@
 
 @implementation User
 
-- (instancetype)initWithName: (NSString *) name badgeCount: (NSDictionary *) badgeCount avatarImageUrl: (NSString *) avatarImageUrl {
+- (instancetype)initWithName: (NSString *) name gold: (NSString *) gold silver: (NSString *) silver bronze: (NSString *) bronze avatarImageUrl: (NSString *) avatarImageUrl {
     self = [super init];
     if (self) {
         self.username = name;
-        self.badgeCount = badgeCount;
         self.avatarImageUrl = avatarImageUrl;
+        self.gold = gold;
+        self.silver = silver;
+        self.bronze = bronze;
     }
     return self;
 }
@@ -33,14 +35,15 @@
             
             // badge_counts {bronze: 1,silver 2, gold: 3}
             
-            NSDictionary *badgeCount = object[@"badge_counts"];
+            NSDictionary *badges = object[@"badge_counts"];
             NSString *name = object[@"display_name"];
             NSString *avatarImageUrl = object[@"profile_image"];
             
-            
-//            User *newUser = [[User alloc] initWithName:name badgeCounts:badgeCounts accountID:accountID link:link];
-//
-            User *newUser = [[User alloc] initWithName:name badgeCount:badgeCount avatarImageUrl:avatarImageUrl];
+            NSString *gold = [NSString stringWithFormat:@"%@",badges[@"gold"]];
+            NSString *silver = [NSString stringWithFormat:@"%@",badges[@"silver"]];
+            NSString *bronze = [NSString stringWithFormat:@"%@",badges[@"bronze"]];
+
+            User *newUser = [[User alloc] initWithName:name gold:gold silver:silver bronze: bronze avatarImageUrl:avatarImageUrl];
             
             [users addObject:newUser];
         }

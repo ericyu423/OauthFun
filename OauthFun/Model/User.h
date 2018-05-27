@@ -15,8 +15,12 @@
 @property (strong,nonatomic) NSString *avatarImageUrl;
 @property (strong,nonatomic) NSDictionary * badgeCount;
 
+@property (strong,nonatomic) NSString *gold;
+@property (strong,nonatomic) NSString *silver;
+@property (strong,nonatomic) NSString *bronze;
 
-- (instancetype)initWithName: (NSString *) name badgeCount: (NSDictionary *) badgeCount avatarImageUrl: (NSString *) avatarImageUrl;
+
+- (instancetype)initWithName: (NSString *) name gold: (NSString *) gold silver: (NSString *) silver bronze: (NSString *) bronze avatarImageUrl: (NSString *) avatarImageUrl;
 
 
 

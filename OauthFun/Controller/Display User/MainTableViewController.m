@@ -51,17 +51,23 @@
     return self.users.count;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 70;
+}
+
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     MainTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
     User *user = self.users[indexPath.row];
     
     //refactor the following code
     cell.userName.text = user.username;
-    cell.imageUrlTempJustToSee.text = user.avatarImageUrl;
-    //cell.gold.text = user.badgeCount;
+    //cell.imageUrlTempJustToSee.text = user.avatarImageUrl;
+  
+    cell.gold.text = user.gold;
+    cell.silver.text = user.silver;
+    cell.bronze.text = user.bronze;
 
-   
-    
     return cell;
 }
 @end

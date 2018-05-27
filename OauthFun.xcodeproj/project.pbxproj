@@ -174,16 +174,48 @@
 		D4D1514D20BA821500416891 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				D4D1515320BB368C00416891 /* Get Token */,
+				D4D1515520BB36DB00416891 /* Network Manger */,
+				D4D1515420BB36B500416891 /* Display User */,
+				D4D1515620BB36F600416891 /* InitialViewController */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		D4D1515320BB368C00416891 /* Get Token */ = {
+			isa = PBXGroup;
+			children = (
 				D4D1512F20B9168600416891 /* WebViewController.h */,
 				D4D1513020B9168600416891 /* WebViewController.m */,
-				D4D1513220B9171000416891 /* NetworkController.h */,
-				D4D1513320B9171000416891 /* NetworkController.m */,
+			);
+			path = "Get Token";
+			sourceTree = "<group>";
+		};
+		D4D1515420BB36B500416891 /* Display User */ = {
+			isa = PBXGroup;
+			children = (
 				D4D1515020BAFCC800416891 /* MainTableViewController.h */,
 				D4D1515120BAFCC800416891 /* MainTableViewController.m */,
+			);
+			path = "Display User";
+			sourceTree = "<group>";
+		};
+		D4D1515520BB36DB00416891 /* Network Manger */ = {
+			isa = PBXGroup;
+			children = (
+				D4D1513220B9171000416891 /* NetworkController.h */,
+				D4D1513320B9171000416891 /* NetworkController.m */,
+			);
+			path = "Network Manger";
+			sourceTree = "<group>";
+		};
+		D4D1515620BB36F600416891 /* InitialViewController */ = {
+			isa = PBXGroup;
+			children = (
 				D4D1514820BA754400416891 /* MainViewController.h */,
 				D4D1514920BA754500416891 /* MainViewController.m */,
 			);
-			path = Controller;
+			path = InitialViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
