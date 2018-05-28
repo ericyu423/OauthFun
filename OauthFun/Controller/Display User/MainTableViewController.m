@@ -16,6 +16,8 @@
    
     NSURLSessionDownloadTask * task;
     NSURLSession *session;
+    NSCache *imagesCache;
+    
 }
 
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
@@ -28,14 +30,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //image download controls
-    session = [NSURLSession sharedSession];
-    task = [[NSURLSessionDownloadTask alloc] init];
+    [self intializeImageHelpers];
    
     
 }
 
-- (void) refreshTableView {
+- (void) intializeImageHelpers {
+    //image download helper
+    session = [NSURLSession sharedSession];
+    task = [[NSURLSessionDownloadTask alloc] init];
+    imagesCache = [[NSCache alloc] init];
     
 }
 - (void)didReceiveMemoryWarning {
@@ -85,8 +89,12 @@
     cell.silver.text = user.silver;
     cell.bronze.text = user.bronze;
     
-    NSURL *nsurl = [NSURL URLWithString:user.avatarImageUrl];
+    if ([imagesCache objectForKey:[NSString stringWithFormat:@"%ld", (long)indexPath.row]] != nil) {
+        cell.avatarImage.image = [imagesCache objectForKey:[NSString stringWithFormat:@"%ld", (long)indexPath.row]];
+        
+    }else {
  
+    NSURL *nsurl = [NSURL URLWithString:user.avatarImageUrl];
     task = [session downloadTaskWithURL:nsurl completionHandler:^(NSURL *location, NSURLResponse *response, NSError *error) {
                 if (error != 0) {
                     NSLog(@"%@", error.description);
@@ -97,11 +105,14 @@
                         UIImage *image = [UIImage imageWithData: [NSData dataWithContentsOfURL:nsurl]];
                         
                         dispatch_async(dispatch_get_main_queue(), ^{
-                            [self.tableView reloadData];
+                        
                             
                             MainTableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
                             cell.avatarImage.image = image;
                             
+                           // [self->imagesCache setObject:image forKey: user.avatarImageUrl];
+                            [self->imagesCache setObject:image forKey: [NSString stringWithFormat:@"%ld", (long)indexPath.row]];
+                        
                         });
 
                         
@@ -110,6 +121,7 @@
                 }
     }];
     [task resume];
+    }
 
 
     return cell;
