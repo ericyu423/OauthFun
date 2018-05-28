@@ -30,7 +30,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    isLoading = true;
     [self intializeImageHelpers];
 
 }
@@ -73,6 +72,11 @@
 //MARK: TableView Delegates
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+
+    if (isLoading) {
+            return 1;
+    }
+    
     return self.users.count;
 }
 
@@ -84,6 +88,7 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     if (isLoading) {
+        //MARK: add custom tableViewCell to animate if time
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SearchingCell" forIndexPath:indexPath];
         return cell;
     }

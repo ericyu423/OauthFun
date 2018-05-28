@@ -176,7 +176,7 @@
 			children = (
 				D4D1515320BB368C00416891 /* Get Token */,
 				D4D1515520BB36DB00416891 /* Network Manger */,
-				D4D1515420BB36B500416891 /* Display User */,
+				D4D1515420BB36B500416891 /* User Display Table */,
 				D4D1515620BB36F600416891 /* InitialViewController */,
 			);
 			path = Controller;
@@ -191,13 +191,13 @@
 			path = "Get Token";
 			sourceTree = "<group>";
 		};
-		D4D1515420BB36B500416891 /* Display User */ = {
+		D4D1515420BB36B500416891 /* User Display Table */ = {
 			isa = PBXGroup;
 			children = (
 				D4D1515020BAFCC800416891 /* MainTableViewController.h */,
 				D4D1515120BAFCC800416891 /* MainTableViewController.m */,
 			);
-			path = "Display User";
+			path = "User Display Table";
 			sourceTree = "<group>";
 		};
 		D4D1515520BB36DB00416891 /* Network Manger */ = {
