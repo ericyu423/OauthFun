@@ -21,6 +21,6 @@
 
 
 
-- (void)instantiatePropertiesWithPublicKey:(NSString *)publicKey oAuthDomain: (NSString *) oAuthDomain clientID: (NSString *) clientID oAuthURL: (NSString *) oAuthURL;
+//- (void)instantiatePropertiesWithPublicKey:(NSString *)publicKey oAuthDomain: (NSString *) oAuthDomain clientID: (NSString *) clientID oAuthURL: (NSString *) oAuthURL;
 
 @end

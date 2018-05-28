@@ -11,37 +11,48 @@
 #import <SafariServices/SafariServices.h>
 
 
-@interface WebViewController () <WKNavigationDelegate>
+@interface WebViewController () <WKNavigationDelegate>{
+    WKWebView *webView;
+}
 @end
 
 @implementation WebViewController
+-(void)stopSpinner {
+     [[self.view viewWithTag:1] stopAnimating];
+}
 
+-(void)animateSpinner {
+    
+    //MARK: Make spinner bigger
+    UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    
+    spinner.center = CGPointMake(self.view.center.x,self.view.center.y);
+    spinner.tag = 1;
+   // [self webView.view  addSubview:spinner];
+    [webView addSubview:spinner];
+    [spinner startAnimating];
+  
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    WKWebView *webView = [[WKWebView alloc] initWithFrame:self.view.frame];
-    [self.view addSubview:webView];
-    
- 
-    
-    webView.navigationDelegate= self;
 
-    
-//    NSString *const kPublicKey   = @"ph9GJgpB2ZIc0lYwqBgSug((";
-//    NSString *const kOAuthDomain = @"https://stackexchange.com/oauth/login_success";
-//    NSString *const kClientID    = @"12519";
-//    NSString *const kOAuthURL    = @"https://stackoverflow.com/oauth";
-    
-    //Refactor code
-//    NSString *baseURL = @"https://stackexchange.com/oauth";///dialog";
-//    NSString *clientID = @"12519";
-//    NSString *redirectURI = @"https://stackexchange.com/oauth/login_success";
+    webView = [[WKWebView alloc] initWithFrame:self.view.frame];
+    [self.view addSubview:webView];
+    [self animateSpinner];
+    webView.navigationDelegate = self;
+
     NSString *loginURL = [NSString stringWithFormat:@"%@?client_id=%@&redirect_uri=%@",kOAuthURL,kClientID,kOAuthDomain];
 
     [webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:loginURL]]];
-    
-  
- 
+
+}
+
+- (void)webView:(WKWebView *)webView didFailNavigation:(WKNavigation *)navigation withError:(NSError *)error{
+    [self stopSpinner];
+}
+
+- (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation{
+     [self stopSpinner];
 }
 
 - (void)webView:(WKWebView *)webView decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler {
@@ -61,33 +72,5 @@
     }
     decisionHandler(WKNavigationActionPolicyAllow);
 }
-
-/*
-//only get called in 403 error fix this if I have time
-- (void)webView:(WKWebView *)webView decidePolicyForNavigationResponse:(WKNavigationResponse *)navigationResponse decisionHandler:(void (^)(WKNavigationResponsePolicy))decisionHandler {
-    
-    if ([navigationResponse.response isKindOfClass:[NSHTTPURLResponse class]]) {
-        
-        NSHTTPURLResponse * response = (NSHTTPURLResponse *)navigationResponse.response;
-  
-        if (response.statusCode == 403) {
-          //need to use SFSafariViewController
-          //to get rid of google sign in 403 error
-         NSURL *url = [NSURL URLWithString:loginURL];
-         SFSafariViewController *safariVC = [[SFSafariViewController alloc] initWithURL:url];
-         [self showViewController:safariVC sender:nil];
-                }
-        
-    }
-    decisionHandler(WKNavigationResponsePolicyAllow);
-}*/
-
-- (void)instantiatePropertiesWithPublicKey:(NSString *)publicKey oAuthDomain: (NSString *) oAuthDomain clientID: (NSString *) clientID oAuthURL: (NSString *) oAuthURL {
-    self.publicKey = publicKey;
-    self.oAuthDomain = oAuthDomain;
-    self.clientID = clientID;
-    self.oAuthURL = oAuthURL;
-}
-
 @end
 

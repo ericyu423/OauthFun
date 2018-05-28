@@ -55,10 +55,11 @@
                 NSLog(@"fetch successful");
                 NSMutableArray *users = [User parseJson:data];
                
-                //dispatch to mainQueue so it won't block UI
-                [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-                    success(nil, users);
-                }];
+                dispatch_async(dispatch_get_main_queue(), ^{
+                   success(nil, users);
+                });
+           
+                
             } else {
       
                 NSLog(@"fetch was unsuccessful. code: %lu", httpResponse.statusCode);

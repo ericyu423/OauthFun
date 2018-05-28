@@ -23,7 +23,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
- 
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -35,13 +35,26 @@
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
     [[NetworkController networkController] fetchUsersWith:self.searchBar.text completionHandler:^(NSError *error, NSMutableArray *users) {
+        //UI Thread
+        
         if (error != nil) {
             NSLog(@"%@", error.description);
         } else {
             self.users = users;
-            [self.searchBar resignFirstResponder];
-            [self.tableView reloadData];
+           // [self.searchBar resignFirstResponder];
+            
+           [self.tableView reloadData];
+          
+            
         }
+        
+        /*
+        dispatch_async(dispatch_get_main_queue(), ^{
+            //display new data on main thread.
+        }*/
+
+                           
+                           
     }];
 }
 
