@@ -6,13 +6,14 @@
 //  Copyright © 2018 eric yu. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+
 #import <UIKit/UIKit.h>
 
 @interface User : NSObject
 
 @property (strong,nonatomic) NSString *username;
 @property (strong,nonatomic) NSString *avatarImageUrl;
+@property(strong,nonatomic) UIImage *avatarImage;
 @property (strong,nonatomic) NSDictionary * badgeCount;
 
 @property (strong,nonatomic) NSString *gold;

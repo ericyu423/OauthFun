@@ -12,7 +12,7 @@
 
 +(id)sharedService;
 
--(void)fetchProfileImages:(NSArray *)urls completionHandler:(void (^)(NSArray* images))completionHandler;
+-(void)fetchAvatarImagesFrom:(NSArray *)urls completionHandler:(void (^)(NSArray* images))completionHandler;
 
 -(UIImage *)getAvatrFrom:(NSString *)urlString;
 

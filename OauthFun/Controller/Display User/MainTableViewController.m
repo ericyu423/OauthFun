@@ -10,8 +10,13 @@
 #import "MainTableViewCell.h"
 #import "NetworkController.h"
 #import "User.h"
+#import "ImageManager.h"
 
-@interface MainTableViewController ()
+@interface MainTableViewController ()<UITableViewDelegate,UITableViewDataSource>{
+   
+    NSURLSessionDownloadTask * task;
+    NSURLSession *session;
+}
 
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 
@@ -23,9 +28,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    //image download controls
+    session = [NSURLSession sharedSession];
+    task = [[NSURLSessionDownloadTask alloc] init];
+   
+    
 }
 
+- (void) refreshTableView {
+    
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -41,19 +53,11 @@
             NSLog(@"%@", error.description);
         } else {
             self.users = users;
-           // [self.searchBar resignFirstResponder];
-            
-           [self.tableView reloadData];
-          
-            
-        }
-        
-        /*
-        dispatch_async(dispatch_get_main_queue(), ^{
-            //display new data on main thread.
-        }*/
 
-                           
+           [self.tableView reloadData];
+     
+
+         }
                            
     }];
 }
@@ -80,6 +84,33 @@
     cell.gold.text = user.gold;
     cell.silver.text = user.silver;
     cell.bronze.text = user.bronze;
+    
+    NSURL *nsurl = [NSURL URLWithString:user.avatarImageUrl];
+ 
+    task = [session downloadTaskWithURL:nsurl completionHandler:^(NSURL *location, NSURLResponse *response, NSError *error) {
+                if (error != 0) {
+                    NSLog(@"%@", error.description);
+                } else {
+                    NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
+        
+                    if (httpResponse.statusCode == 200) {
+                        UIImage *image = [UIImage imageWithData: [NSData dataWithContentsOfURL:nsurl]];
+                        
+                        dispatch_async(dispatch_get_main_queue(), ^{
+                            [self.tableView reloadData];
+                            
+                            MainTableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+                            cell.avatarImage.image = image;
+                            
+                        });
+
+                        
+                    }
+        
+                }
+    }];
+    [task resume];
+
 
     return cell;
 }

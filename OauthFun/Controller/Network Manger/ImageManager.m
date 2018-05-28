@@ -16,11 +16,14 @@
     return self;
 }
 
--(void)fetchAvatarImages:(NSArray *)urls completionHandler:(void (^)(NSArray* images))completionHandler {
+-(void)fetchAvatarImagesFrom:(NSArray *)urls completionHandler:(void (^)(NSArray* images))completionHandler {
+    
+    
+    
     dispatch_group_t group = dispatch_group_create();
     NSMutableArray *images = [[NSMutableArray alloc]init];
     
-    NSInteger divider = 1;
+    NSInteger divider = 3;
     NSInteger urlsPerTask = urls.count / divider ;
     NSInteger remainderURLs = urls.count % divider ;
     
@@ -47,6 +50,10 @@
             }
         });
     }
+    
+    dispatch_group_notify(group, dispatch_get_main_queue(), ^{
+        completionHandler(images);
+    });
     
 }
 -(UIImage *)getAvatarFrom:(NSString *)urlString {
