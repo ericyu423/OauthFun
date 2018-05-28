@@ -10,5 +10,5 @@
 
 @interface MainTableViewController : UIViewController
 @property (strong, nonatomic) NSMutableArray *users;
-
+@property (weak, nonatomic) NSManagedObjectContext *context;
 @end

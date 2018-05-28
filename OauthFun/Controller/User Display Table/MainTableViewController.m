@@ -11,6 +11,7 @@
 #import "NetworkController.h"
 #import "User.h"
 
+
 @interface MainTableViewController ()<UITableViewDelegate,UITableViewDataSource>{
    
     NSURLSessionDownloadTask * task;
@@ -22,6 +23,7 @@
 
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+
 
 
 @end

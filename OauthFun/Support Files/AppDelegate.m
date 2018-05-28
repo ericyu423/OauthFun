@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "MainViewController.h"
+#import "AFHandlesManageObjectConext.h"
 
 @interface AppDelegate ()
 
@@ -16,7 +18,11 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    NSObject<AFHandlesManageObjectConext> *child = (NSObject<AFHandlesManageObjectConext> *) self.window.rootViewController;
+    
+    //child/rootviewcontroller is navigationView
+    [child recevieManageObjectContext:self.persistentContainer.viewContext];
+
     return YES;
 }
 
