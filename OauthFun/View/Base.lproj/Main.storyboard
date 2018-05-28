@@ -29,7 +29,7 @@
                                     <action selector="viewUserButtonClicked:" destination="Q2v-jD-W8h" eventType="touchUpInside" id="a3H-U8-GP6"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Oauth 2.0 Login Search" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EQD-qh-ofN">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Oauth 2.0 Login Search" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EQD-qh-ofN">
                                 <rect key="frame" x="16" y="316" width="343" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <color key="textColor" red="0.043137254901960784" green="0.14117647058823529" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

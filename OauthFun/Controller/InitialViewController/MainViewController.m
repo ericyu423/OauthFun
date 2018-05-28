@@ -12,7 +12,6 @@
 
 @interface MainViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
-
 @property (weak, nonatomic) IBOutlet UIButton *viewUserButtonTitle;
 @end
 
@@ -33,6 +32,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+
     //shrink and hide button
     [self.viewUserButtonTitle setHidden:true];
     [self.viewUserButtonTitle setTransform:CGAffineTransformScale(CGAffineTransformIdentity,0.5, 0.5)];
