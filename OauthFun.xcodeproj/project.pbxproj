@@ -24,7 +24,6 @@
 		D4D1514A20BA754500416891 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4D1514920BA754500416891 /* MainViewController.m */; };
 		D4D1514F20BAF9E500416891 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D4D1514E20BAF9E500416891 /* Default-568h@2x.png */; };
 		D4D1515220BAFCC800416891 /* MainTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4D1515120BAFCC800416891 /* MainTableViewController.m */; };
-		D4D1516020BBB51D00416891 /* ImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D4D1515F20BBB51D00416891 /* ImageManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,8 +66,6 @@
 		D4D1514E20BAF9E500416891 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		D4D1515020BAFCC800416891 /* MainTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainTableViewController.h; sourceTree = "<group>"; };
 		D4D1515120BAFCC800416891 /* MainTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainTableViewController.m; sourceTree = "<group>"; };
-		D4D1515E20BBB51D00416891 /* ImageManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageManager.h; sourceTree = "<group>"; };
-		D4D1515F20BBB51D00416891 /* ImageManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImageManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -208,8 +205,6 @@
 			children = (
 				D4D1513220B9171000416891 /* NetworkController.h */,
 				D4D1513320B9171000416891 /* NetworkController.m */,
-				D4D1515E20BBB51D00416891 /* ImageManager.h */,
-				D4D1515F20BBB51D00416891 /* ImageManager.m */,
 			);
 			path = "Network Manger";
 			sourceTree = "<group>";
@@ -325,7 +320,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D4D1516020BBB51D00416891 /* ImageManager.m in Sources */,
 				D4D1515220BAFCC800416891 /* MainTableViewController.m in Sources */,
 				D4D1514A20BA754500416891 /* MainViewController.m in Sources */,
 				D4D1514320B9E39000416891 /* User.m in Sources */,

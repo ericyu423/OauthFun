@@ -10,7 +10,6 @@
 #import "MainTableViewCell.h"
 #import "NetworkController.h"
 #import "User.h"
-#import "ImageManager.h"
 
 @interface MainTableViewController ()<UITableViewDelegate,UITableViewDataSource>{
    
@@ -57,7 +56,7 @@
             NSLog(@"%@", error.description);
         } else {
             self.users = users;
-
+            [self->imagesCache removeAllObjects];
            [self.tableView reloadData];
      
 
@@ -110,7 +109,7 @@
                             MainTableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
                             cell.avatarImage.image = image;
                             
-                           // [self->imagesCache setObject:image forKey: user.avatarImageUrl];
+                          
                             [self->imagesCache setObject:image forKey: [NSString stringWithFormat:@"%ld", (long)indexPath.row]];
                         
                         });
