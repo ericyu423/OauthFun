@@ -1,9 +1,11 @@
 
 
+- Serach for nothing will fetch all users
+- Serach by name cap by 500 entries
+- cache avatars during search does not save locally
 
 - does not work with google login (work with facebook and regular login)
-- search only if user name are enter (have to be 2 or more characters)
-- currently only cache avatars during search does not save locally
+
 
 
 update 1:
@@ -14,6 +16,7 @@ Added Protocol to foward ManagementContext
 update 2:
 Added query for all users
 Impoved Cell Display
+
 
 
 

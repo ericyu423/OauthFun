@@ -32,7 +32,9 @@
     NSString *token = [[NSUserDefaults standardUserDefaults] valueForKey:@"token"];
     
     
-    NSString *urlString = [NSString stringWithFormat:@"https://api.stackexchange.com/2.2/users?page=%d&order=desc&sort=reputation&inname=%@&site=stackoverflow",(int)currentPage, encodedName];
+    //when user enter name cap search at 500 entries
+    
+    NSString *urlString = [NSString stringWithFormat:@"https://api.stackexchange.com/2.2/users?page=%d&order=desc&max=500&sort=name&inname=%@&site=stackoverflow",(int)currentPage, encodedName];
     
     
     if ([encodedName  isEqual: @""])
