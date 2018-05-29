@@ -12,12 +12,13 @@
 #import "User.h"
 
 
-@interface MainTableViewController ()<UITableViewDelegate,UITableViewDataSource>{
+@interface MainTableViewController ()<UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate>{
    
     NSURLSessionDownloadTask * task;
     NSURLSession *session;
     NSCache *imagesCache;
     bool isLoading;
+    NSInteger currentPage;
     
 }
 
@@ -53,10 +54,10 @@
     [self.tableView reloadData]; //display isloading cell
     [self.searchBar resignFirstResponder];
     
-    [[NetworkController networkController] fetchUsersWith:self.searchBar.text completionHandler:^(NSError *error, NSMutableArray *users) {
-        
-
-        
+    //start at page 1
+    
+    [[NetworkController networkController] fetchUsersWith:self.searchBar.text currentPage: 1 completionHandler:^(NSError *error, NSMutableArray *users) {
+      
         if (error != nil) {
             NSLog(@"%@", error.description);
             self->isLoading = false;
@@ -70,6 +71,42 @@
         
     }];
 }
+
+//MARK: ScrollView Delegate
+
+-(void)scrollViewDidScroll: (UIScrollView*)scrollView {
+    //This is not a good way to tell bottom
+    
+    CGFloat height = scrollView.frame.size.height;
+    CGFloat contentYoffset = scrollView.contentOffset.y;
+    CGFloat distanceFromBottom = scrollView.contentSize.height - contentYoffset;
+    
+    if (distanceFromBottom < height) {
+        currentPage += 1;
+
+        [[NetworkController networkController] fetchUsersWith:self.searchBar.text currentPage: currentPage completionHandler:^(NSError *error, NSMutableArray *users) {
+            if (error != nil) {
+                NSLog(@"%@", error.description);
+                self->isLoading = false;
+                [self.tableView reloadData];
+            } else {
+                //load 30 more
+                self->isLoading = false;
+                [self.users addObjectsFromArray:users];
+                [self->imagesCache removeAllObjects];
+                [self.tableView reloadData];
+            }
+            
+        }];
+       
+    }
+ 
+   
+        
+    
+    
+}
+
 
 //MARK: TableView Delegates
 

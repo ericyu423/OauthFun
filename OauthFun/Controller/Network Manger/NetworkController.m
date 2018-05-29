@@ -22,7 +22,7 @@
 }
 
 
-- (void) fetchUsersWith: (NSString *)name completionHandler: (void (^)(NSError *error, NSMutableArray *users))success {
+- (void) fetchUsersWith: (NSString *)name currentPage:(NSInteger) currentPage completionHandler: (void (^)(NSError *error, NSMutableArray *users))success {
     
     //name encoding
     NSString *charactersToEscape = @"!*'();:@&=+$,/?%#[]\" ";
@@ -32,14 +32,15 @@
     NSString *token = [[NSUserDefaults standardUserDefaults] valueForKey:@"token"];
     
     
-    NSString *urlString = [NSString stringWithFormat:@"https://api.stackexchange.com/2.2/users?order=desc&sort=reputation&inname=%@&site=stackoverflow", encodedName];
-    if (encodedName == nil)
-    {   //page 1
-        urlString = [NSString stringWithFormat:@"https://api.stackexchange.com/2.2/users?page=%d&site=stackoverflow",1];
+    NSString *urlString = [NSString stringWithFormat:@"https://api.stackexchange.com/2.2/users?page=%d&order=desc&sort=reputation&inname=%@&site=stackoverflow",(int)currentPage, encodedName];
+    
+    
+    if ([encodedName  isEqual: @""])
+    {
+       
+        urlString = [NSString stringWithFormat:@"https://api.stackexchange.com/2.2/users?page=%d&site=stackoverflow",(int)currentPage];
     }
-    //serach for user without name
-    /*
-    NSString *urlString = [NSString stringWithFormat:@"https://api.stackexchange.com/2.2/users?page=1&order=desc&max=999&sort=reputation&site=stackoverflow"];*/
+   
     
     NSString *acess_token = [NSString stringWithFormat: @"&access_token=%@", token];
     NSString *key = [NSString stringWithFormat: @"&key=%@", kPublicKey];
