@@ -2,20 +2,15 @@
 
 - Serach for nothing will fetch all users
 - Serach by name cap by 500 entries
-- cache avatars during search does not save locally
+- Cache avatars during search.
+- Oauth able to fetch token by Facebook login, and regular login
+(current version does not work with google login)
 
-- does not work with google login (work with facebook and regular login)
 
 
+Incomplete:
+CoreData model setup but no logic to write/fetch data offline
 
-update 1:
-Setup coreData model.
-Added NavigationController.
-Added Protocol to foward ManagementContext
-
-update 2:
-Added query for all users
-Impoved Cell Display
 
 
 
