@@ -36,9 +36,18 @@
                                 <color key="textColor" red="0.043137254901960784" green="0.14117647058823529" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WsP-Nk-tR2">
+                                <rect key="frame" x="84" y="617" width="206" height="30"/>
+                                <state key="normal" title="User Search No Login Require"/>
+                                <connections>
+                                    <action selector="NoLoginButtonClicked:" destination="Q2v-jD-W8h" eventType="touchUpInside" id="kVb-gv-8vr"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="PLd-AC-fYi" firstAttribute="bottom" secondItem="WsP-Nk-tR2" secondAttribute="bottom" constant="20" id="9yG-gP-dPj"/>
+                            <constraint firstItem="WsP-Nk-tR2" firstAttribute="centerX" secondItem="iWV-F5-DAG" secondAttribute="centerX" id="Ip7-1G-fSX"/>
                             <constraint firstItem="EQD-qh-ofN" firstAttribute="centerY" secondItem="iWV-F5-DAG" secondAttribute="centerY" id="OM1-xr-ddz"/>
                             <constraint firstItem="2NE-nm-8WW" firstAttribute="centerY" secondItem="iWV-F5-DAG" secondAttribute="centerY" id="eAK-hq-cRn"/>
                             <constraint firstItem="EQD-qh-ofN" firstAttribute="leading" secondItem="PLd-AC-fYi" secondAttribute="leading" constant="16" id="lnv-ug-COt"/>

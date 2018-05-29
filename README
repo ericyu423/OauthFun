@@ -5,6 +5,8 @@
 - Cache avatars during search.
 - Oauth able to fetch token by Facebook login, and regular login
 (current version does not work with google login)
+- click "User Search No Login Require" to search user without login
+  (does not require access token)
 
 
 

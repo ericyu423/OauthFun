@@ -16,6 +16,9 @@
 @end
 
 @implementation MainViewController
+- (IBAction)NoLoginButtonClicked:(id)sender {
+    [self performSegueWithIdentifier:@"MainViewToMainTable" sender:self];
+}
 
 - (IBAction)viewUserButtonClicked:(UIButton *)sender {
 

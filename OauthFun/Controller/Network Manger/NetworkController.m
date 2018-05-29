@@ -43,18 +43,24 @@
         urlString = [NSString stringWithFormat:@"https://api.stackexchange.com/2.2/users?page=%d&site=stackoverflow",(int)currentPage];
     }
    
+    //if user didn't login
+    if(token != nil){
+ 
+        NSString *acess_token = [NSString stringWithFormat: @"&access_token=%@", token];
+        NSString *key = [NSString stringWithFormat: @"&key=%@", kPublicKey];
+        NSString *token_and_key = [acess_token stringByAppendingString:key];
+        urlString = [urlString stringByAppendingString:token_and_key];
+        //NSURL *url = [[NSURL alloc] initWithString: urlString];
+        //NSLOG
+        NSLog(@"oauth key: %@", key);
+        NSLog(@"access token: %@", token);
+        NSLog(@"parm: %@", token_and_key);
+        //NSLog(@"url: %@", url);
+    }
+        //user didn't login
+        NSURL *url = [[NSURL alloc] initWithString: urlString];
     
-    NSString *acess_token = [NSString stringWithFormat: @"&access_token=%@", token];
-    NSString *key = [NSString stringWithFormat: @"&key=%@", kPublicKey];
-    NSString *token_and_key = [acess_token stringByAppendingString:key];
-    urlString = [urlString stringByAppendingString:token_and_key];
-    NSURL *url = [[NSURL alloc] initWithString: urlString];
-    
-    //NSLOG
-    NSLog(@"oauth key: %@", key);
-    NSLog(@"access token: %@", token);
-    NSLog(@"parm: %@", token_and_key);
-    NSLog(@"url: %@", url);
+   
 
     
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
