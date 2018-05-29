@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AFHandlesManageObjectConext.h"
 
-@interface MainTableViewController : UIViewController
+@interface MainTableViewController : UIViewController<AFHandlesManageObjectConext>
 @property (strong, nonatomic) NSMutableArray *users;
-@property (weak, nonatomic) NSManagedObjectContext *context;
+
 @end

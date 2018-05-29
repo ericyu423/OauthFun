@@ -13,6 +13,7 @@
 @interface MainViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UIButton *viewUserButtonTitle;
+@property (weak, nonatomic) NSManagedObjectContext *context;
 @end
 
 @implementation MainViewController
@@ -75,8 +76,17 @@
     }];
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+-(void) recevieManageObjectContext:(NSManagedObjectContext *)incomingMangedObjectContext{
     
+    self.context = incomingMangedObjectContext;
+    
+    
+}
+
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    id<AFHandlesManageObjectConext> child = (id<AFHandlesManageObjectConext>) [segue destinationViewController];
+    [child recevieManageObjectContext:self.context];
 
 }
 

@@ -20,7 +20,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     NSObject<AFHandlesManageObjectConext> *child = (NSObject<AFHandlesManageObjectConext> *) self.window.rootViewController;
     
-    //child/rootviewcontroller is navigationView
+    //child is navigationView
     [child recevieManageObjectContext:self.persistentContainer.viewContext];
 
     return YES;

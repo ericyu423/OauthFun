@@ -21,6 +21,7 @@
 
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) NSManagedObjectContext *context;
 
 @end
 
@@ -156,6 +157,10 @@
     }
     
     return cell;
+}
+
+-(void) recevieManageObjectContext:(NSManagedObjectContext *)incomingMangedObjectContext{
+    self.context = incomingMangedObjectContext;
 }
 
 

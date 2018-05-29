@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AFHandlesManageObjectConext.h"
 
-@interface MainViewController : UIViewController
-@property (weak, nonatomic) NSManagedObjectContext *context;
+@interface MainViewController : UIViewController<AFHandlesManageObjectConext>
+
 
 @end

@@ -11,4 +11,5 @@
 
 @interface NavigationViewController : UINavigationController<AFHandlesManageObjectConext>
 
+
 @end

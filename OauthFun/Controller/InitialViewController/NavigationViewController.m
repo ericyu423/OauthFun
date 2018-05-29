@@ -11,9 +11,13 @@
 
 @interface NavigationViewController ()
 
+@property (weak, nonatomic) NSManagedObjectContext *context;
+
 @end
 
 @implementation NavigationViewController
+
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -35,6 +39,10 @@
 }
 */
 -(void) recevieManageObjectContext:(NSManagedObjectContext *)incomingMangedObjectContext{
-    //pass to the next viewcontroller
+    
+    self.context = incomingMangedObjectContext;
+
+    id<AFHandlesManageObjectConext> child = (id<AFHandlesManageObjectConext>) self.viewControllers[0];
+    [child recevieManageObjectContext:self.context];
 }
 @end
