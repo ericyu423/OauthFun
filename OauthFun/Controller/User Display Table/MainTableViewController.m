@@ -99,6 +99,11 @@
     MainTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
     
     User *user = self.users[indexPath.row];
+    
+  
+    
+    
+    
     cell.userName.text = user.username;
     cell.gold.text = user.gold;
     cell.silver.text = user.silver;

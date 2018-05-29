@@ -31,9 +31,12 @@
     
     NSString *token = [[NSUserDefaults standardUserDefaults] valueForKey:@"token"];
     
-    //search with name
-    NSString *urlString = [NSString stringWithFormat:@"https://api.stackexchange.com/2.2/users?order=desc&sort=reputation&inname=%@&site=stackoverflow", encodedName];
     
+    NSString *urlString = [NSString stringWithFormat:@"https://api.stackexchange.com/2.2/users?order=desc&sort=reputation&inname=%@&site=stackoverflow", encodedName];
+    if (encodedName == nil)
+    {   //page 1
+        urlString = [NSString stringWithFormat:@"https://api.stackexchange.com/2.2/users?page=%d&site=stackoverflow",1];
+    }
     //serach for user without name
     /*
     NSString *urlString = [NSString stringWithFormat:@"https://api.stackexchange.com/2.2/users?page=1&order=desc&max=999&sort=reputation&site=stackoverflow"];*/
