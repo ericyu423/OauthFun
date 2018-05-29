@@ -171,7 +171,7 @@
                                     <outlet property="delegate" destination="WjG-Pk-aAi" id="HtX-28-7N8"/>
                                 </connections>
                             </tableView>
-                            <searchBar contentMode="redraw" placeholder="Search Empty for All Users" translatesAutoresizingMaskIntoConstraints="NO" id="v9w-LO-sJd">
+                            <searchBar contentMode="redraw" placeholder="Leave Search field Empty for All Users" translatesAutoresizingMaskIntoConstraints="NO" id="v9w-LO-sJd">
                                 <rect key="frame" x="0.0" y="64" width="375" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>

@@ -12,10 +12,8 @@
 #import "User.h"
 
 
-@interface MainTableViewController ()<UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate>{
+@interface MainTableViewController ()<UITableViewDelegate,UITableViewDataSource>{
    
-    NSURLSessionDownloadTask * task;
-    NSURLSession *session;
     NSCache *imagesCache;
     bool isLoading;
     NSInteger currentPage;
@@ -30,14 +28,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self intializeImageHelpers];
-}
-
-- (void) intializeImageHelpers {
-    session = [NSURLSession sharedSession];
-    task = [[NSURLSessionDownloadTask alloc] init];
     imagesCache = [[NSCache alloc] init];
 }
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -68,36 +61,35 @@
     }];
 }
 
-//MARK: ScrollView Delegate
 
--(void)scrollViewDidScroll: (UIScrollView*)scrollView {
-    //This is not a good way to tell bottom
-    
-    CGFloat height = scrollView.frame.size.height;
-    CGFloat contentYoffset = scrollView.contentOffset.y;
-    CGFloat distanceFromBottom = scrollView.contentSize.height - contentYoffset;
-    
-    if (distanceFromBottom < height) {
+//MARK: TableView Delegates
+
+-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.row + 1 == self.users.count) {
+  
+        //TODO: add loading animation
+        
         currentPage += 1;
-
         [[NetworkController networkController] fetchUsersWith:self.searchBar.text currentPage: currentPage completionHandler:^(NSError *error, NSMutableArray *users) {
             if (error != nil) {
                 NSLog(@"%@", error.description);
                 self->isLoading = false;
                 [self.tableView reloadData];
+          
             } else {
                 //loads 30 at a time
                 self->isLoading = false;
                 [self.users addObjectsFromArray:users];
                 [self->imagesCache removeAllObjects];
                 [self.tableView reloadData];
+            
             }
+            
+            //TODO: stop loading animation when loading is added
+            
         }];
     }
 }
-
-
-//MARK: TableView Delegates
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
@@ -135,7 +127,10 @@
         cell.avatarImage.image = [imagesCache objectForKey:[NSString stringWithFormat:@"%ld", (long)indexPath.row]];
         
     }else {
-        
+        NSURLSessionDownloadTask * task;
+        NSURLSession *session;
+        session = [NSURLSession sharedSession];
+        task = [[NSURLSessionDownloadTask alloc] init];
         NSURL *nsurl = [NSURL URLWithString:user.avatarImageUrl];
         task = [session downloadTaskWithURL:nsurl completionHandler:^(NSURL *location, NSURLResponse *response, NSError *error) {
             if (error != 0) {
@@ -145,13 +140,13 @@
                 
                 if (httpResponse.statusCode == 200) {
                     UIImage *image = [UIImage imageWithData: [NSData dataWithContentsOfURL:nsurl]];
+                    
                     //dispatch to UI thread
                     dispatch_async(dispatch_get_main_queue(), ^{
                         
                         MainTableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
                         cell.avatarImage.image = image;
-                        
-                        //write to cache
+          
                         [self->imagesCache setObject:image forKey: [NSString stringWithFormat:@"%ld", (long)indexPath.row]];
                     });
                 }
@@ -162,4 +157,6 @@
     
     return cell;
 }
+
+
 @end
