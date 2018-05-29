@@ -13,9 +13,12 @@
 
 @property (nonatomic, strong) NSURLSession *urlSession;
 @property (nonatomic, strong) NSString *token;
+//current page tracks current loading page location
+@property NSInteger currentPage;
 
 
-- (void) fetchUsersWith: (NSString *)name completionHandler: (void (^)(NSError *error, NSMutableArray *names))success;
+
+- (void) fetchUsersWith: (NSString *)name currentPage: (NSInteger) currentPage completionHandler: (void (^)(NSError *error, NSMutableArray *names))success;
 
 + (id) networkController;
 

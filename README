@@ -1,12 +1,15 @@
 
 
+- Serach for nothing will fetch all users
+- Serach by name cap by 500 entries
+- Cache avatars during search.
+- Oauth able to fetch token by Facebook login, and regular login
+(current version does not work with google login)
 
-* does not work with google login (work with facebook and regular login)
-* search only if user name are enter (have to be 2 or more characters)
-* currently only cache avatars during search do not save locally
-* podfile are not used, was going to use AppAuth but remove it later because I it takes too long to change everything.
 
 
+Incomplete:
+CoreData model setup but no logic to write/fetch data offline
 
 
 

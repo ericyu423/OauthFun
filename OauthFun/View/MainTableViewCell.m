@@ -13,7 +13,10 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    // Initialization code
+    //make image Avatar a circular
+    [self.avatarImage.layer setCornerRadius:self.avatarImage.frame.size.height/2.0];
+    self.avatarImage.clipsToBounds = true;
+    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
