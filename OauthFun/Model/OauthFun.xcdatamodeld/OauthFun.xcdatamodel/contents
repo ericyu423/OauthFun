@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14133" systemVersion="17E202" minimumToolsVersion="Automatic" sourceLanguage="Objective-C" userDefinedModelVersionIdentifier="">
+    <entity name="StockUser" representedClassName="StockUser" syncable="YES">
+        <attribute name="avatarImage" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="avatarImageUrl" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="bronze" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="gold" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="silver" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="userID" attributeType="String" syncable="YES"/>
+        <attribute name="username" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="StockUser" positionX="-63" positionY="-18" width="128" height="148"/>
+    </elements>
+</model>
