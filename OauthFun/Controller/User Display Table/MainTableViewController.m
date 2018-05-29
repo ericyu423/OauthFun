@@ -45,9 +45,11 @@
 
 //MARK: SerachBar Delegates
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
-    
+  
     isLoading = true;
-    [self.tableView reloadData]; //display isloading cell
+    currentPage = 1;
+    
+    [self.tableView reloadData];
     [self.searchBar resignFirstResponder];
     //start at page 1
     
@@ -84,7 +86,7 @@
                 self->isLoading = false;
                 [self.tableView reloadData];
             } else {
-                //load 30 more
+                //loads 30 at a time
                 self->isLoading = false;
                 [self.users addObjectsFromArray:users];
                 [self->imagesCache removeAllObjects];

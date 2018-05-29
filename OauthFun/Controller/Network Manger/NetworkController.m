@@ -14,7 +14,7 @@
 // thread-safe way to create an instance of a class
 + (id) networkController {
     static NetworkController *networkController = nil;
-    static dispatch_once_t once;
+    static dispatch_once_t once = 0;
     dispatch_once(&once, ^{
         networkController = [[self alloc] init];
     });
