@@ -9,12 +9,30 @@
   (does not require access token)
 
 
-
-
-
-
 Incomplete:
 CoreData model setup but no logic to write/fetch user data offline
+
+
+
+
+
+Possible Bug when Cloning project:
+
+clang:error no such file or directory:
+
+Model:
+StockUser+coreDataClass.h
+StockUser+CoreDataClass.m
+StockUser+CoreDataProperties.h
+StockUser+CoreDataProperties.m
+
+Xcode showing file missing
+
+To Fix go to folder
+OathFun(project name) -> OathFun -> Model
+drag out all missing files back to xcode 
+
+
 
 
 
