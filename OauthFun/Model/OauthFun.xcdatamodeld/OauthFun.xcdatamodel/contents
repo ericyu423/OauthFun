@@ -1,15 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14133" systemVersion="17E202" minimumToolsVersion="Automatic" sourceLanguage="Objective-C" userDefinedModelVersionIdentifier="">
-    <entity name="StockUser" representedClassName="StockUser" syncable="YES">
-        <attribute name="avatarImage" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+    <entity name="Image" representedClassName="Image" syncable="YES" codeGenerationType="category">
+        <relationship name="stockUser" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="StockUser" inverseName="image" inverseEntity="StockUser" syncable="YES"/>
+    </entity>
+    <entity name="StockUser" representedClassName="StockUser" syncable="YES" codeGenerationType="category">
         <attribute name="avatarImageUrl" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="bronze" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="gold" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="silver" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="userID" attributeType="String" syncable="YES"/>
         <attribute name="username" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="image" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Image" inverseName="stockUser" inverseEntity="Image" syncable="YES"/>
     </entity>
     <elements>
-        <element name="StockUser" positionX="-63" positionY="-18" width="128" height="148"/>
+        <element name="StockUser" positionX="1125" positionY="-1827" width="128" height="148"/>
+        <element name="Image" positionX="1321" positionY="-1737" width="128" height="58"/>
     </elements>
 </model>

@@ -1,8 +1,9 @@
 //
 //  StockUser+CoreDataProperties.m
-//  
+//  OauthFun
 //
-//  Created by eric yu on 5/28/18.
+//  Created by eric yu on 5/29/18.
+//  Copyright © 2018 eric yu. All rights reserved.
 //
 //
 
@@ -14,12 +15,12 @@
 	return [NSFetchRequest fetchRequestWithEntityName:@"StockUser"];
 }
 
-@dynamic username;
 @dynamic avatarImageUrl;
-@dynamic avatarImage;
+@dynamic bronze;
 @dynamic gold;
 @dynamic silver;
-@dynamic bronze;
 @dynamic userID;
+@dynamic username;
+@dynamic image;
 
 @end

@@ -1,5 +1,5 @@
 //
-//  StockUser+CoreDataClass.m
+//  Image+CoreDataClass.m
 //  OauthFun
 //
 //  Created by eric yu on 5/29/18.
@@ -7,8 +7,8 @@
 //
 //
 
-#import "StockUser+CoreDataClass.h"
+#import "Image+CoreDataClass.h"
 
-@implementation StockUser
+@implementation Image
 
 @end

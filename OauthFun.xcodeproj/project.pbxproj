@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D4326A6A20BE24C400F55B5B /* StockUser+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = D4326A6820BE24C400F55B5B /* StockUser+CoreDataProperties.m */; };
-		D4326A6B20BE24C400F55B5B /* StockUser+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = D4326A6920BE24C400F55B5B /* StockUser+CoreDataClass.m */; };
+		D4326A7420BE36C500F55B5B /* StockUser+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = D4326A6E20BE36C500F55B5B /* StockUser+CoreDataClass.m */; };
+		D4326A7520BE36C500F55B5B /* StockUser+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = D4326A6F20BE36C500F55B5B /* StockUser+CoreDataProperties.m */; };
+		D4326A7620BE36C500F55B5B /* Image+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = D4326A7220BE36C500F55B5B /* Image+CoreDataClass.m */; };
+		D4326A7720BE36C500F55B5B /* Image+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = D4326A7320BE36C500F55B5B /* Image+CoreDataProperties.m */; };
 		D4D1510A20B9164C00416891 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D4D1510920B9164C00416891 /* AppDelegate.m */; };
 		D4D1511020B9164C00416891 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4D1510E20B9164C00416891 /* Main.storyboard */; };
 		D4D1511320B9164C00416891 /* OauthFun.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D4D1511120B9164C00416891 /* OauthFun.xcdatamodeld */; };
@@ -39,10 +41,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		D4326A6620BE24C400F55B5B /* StockUser+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "StockUser+CoreDataProperties.h"; sourceTree = "<group>"; };
-		D4326A6720BE24C400F55B5B /* StockUser+CoreDataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "StockUser+CoreDataClass.h"; sourceTree = "<group>"; };
-		D4326A6820BE24C400F55B5B /* StockUser+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "StockUser+CoreDataProperties.m"; sourceTree = "<group>"; };
-		D4326A6920BE24C400F55B5B /* StockUser+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "StockUser+CoreDataClass.m"; sourceTree = "<group>"; };
+		D4326A6C20BE36C500F55B5B /* StockUser+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "StockUser+CoreDataProperties.h"; sourceTree = "<group>"; };
+		D4326A6D20BE36C500F55B5B /* StockUser+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "StockUser+CoreDataClass.h"; sourceTree = "<group>"; };
+		D4326A6E20BE36C500F55B5B /* StockUser+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "StockUser+CoreDataClass.m"; sourceTree = "<group>"; };
+		D4326A6F20BE36C500F55B5B /* StockUser+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "StockUser+CoreDataProperties.m"; sourceTree = "<group>"; };
+		D4326A7020BE36C500F55B5B /* Image+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Image+CoreDataProperties.h"; sourceTree = "<group>"; };
+		D4326A7120BE36C500F55B5B /* Image+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Image+CoreDataClass.h"; sourceTree = "<group>"; };
+		D4326A7220BE36C500F55B5B /* Image+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Image+CoreDataClass.m"; sourceTree = "<group>"; };
+		D4326A7320BE36C500F55B5B /* Image+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Image+CoreDataProperties.m"; sourceTree = "<group>"; };
 		D4D1510520B9164C00416891 /* OauthFun.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OauthFun.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4D1510820B9164C00416891 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D4D1510920B9164C00416891 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -232,12 +238,16 @@
 		D4D1516D20BCCA2200416891 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				D4326A6C20BE36C500F55B5B /* StockUser+CoreDataProperties.h */,
+				D4326A6D20BE36C500F55B5B /* StockUser+CoreDataClass.h */,
+				D4326A6E20BE36C500F55B5B /* StockUser+CoreDataClass.m */,
+				D4326A6F20BE36C500F55B5B /* StockUser+CoreDataProperties.m */,
+				D4326A7020BE36C500F55B5B /* Image+CoreDataProperties.h */,
+				D4326A7120BE36C500F55B5B /* Image+CoreDataClass.h */,
+				D4326A7220BE36C500F55B5B /* Image+CoreDataClass.m */,
+				D4326A7320BE36C500F55B5B /* Image+CoreDataProperties.m */,
 				D4D1516520BCC77800416891 /* AFHandlesManageObjectConext.h */,
 				D4D1516620BCC90800416891 /* AFHandlesUserEntity.h */,
-				D4326A6720BE24C400F55B5B /* StockUser+CoreDataClass.h */,
-				D4326A6920BE24C400F55B5B /* StockUser+CoreDataClass.m */,
-				D4326A6620BE24C400F55B5B /* StockUser+CoreDataProperties.h */,
-				D4326A6820BE24C400F55B5B /* StockUser+CoreDataProperties.m */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -343,17 +353,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4326A7720BE36C500F55B5B /* Image+CoreDataProperties.m in Sources */,
 				D4D1515220BAFCC800416891 /* MainTableViewController.m in Sources */,
 				D4D1514A20BA754500416891 /* MainViewController.m in Sources */,
+				D4326A7520BE36C500F55B5B /* StockUser+CoreDataProperties.m in Sources */,
+				D4326A7620BE36C500F55B5B /* Image+CoreDataClass.m in Sources */,
 				D4D1514320B9E39000416891 /* User.m in Sources */,
-				D4326A6A20BE24C400F55B5B /* StockUser+CoreDataProperties.m in Sources */,
+				D4326A7420BE36C500F55B5B /* StockUser+CoreDataClass.m in Sources */,
 				D4D1513120B9168600416891 /* WebViewController.m in Sources */,
 				D4D1513720B9189A00416891 /* StackAppPassport.m in Sources */,
 				D4D1511320B9164C00416891 /* OauthFun.xcdatamodeld in Sources */,
 				D4D1517020BCCAF600416891 /* NavigationViewController.m in Sources */,
 				D4D1511B20B9164D00416891 /* main.m in Sources */,
 				D4D1513420B9171000416891 /* NetworkController.m in Sources */,
-				D4326A6B20BE24C400F55B5B /* StockUser+CoreDataClass.m in Sources */,
 				D4D1513F20B9DD0600416891 /* MainTableViewCell.m in Sources */,
 				D4D1510A20B9164C00416891 /* AppDelegate.m in Sources */,
 			);

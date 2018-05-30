@@ -1,5 +1,5 @@
 //
-//  StockUser+CoreDataClass.h
+//  Image+CoreDataClass.h
 //  OauthFun
 //
 //  Created by eric yu on 5/29/18.
@@ -10,14 +10,14 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class Image;
+@class StockUser;
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface StockUser : NSManagedObject
+@interface Image : NSManagedObject
 
 @end
 
 NS_ASSUME_NONNULL_END
 
-#import "StockUser+CoreDataProperties.h"
+#import "Image+CoreDataProperties.h"
